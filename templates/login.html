@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block script %}<script src="{% static 'eye.js' %}">
+</script>
+{% endblock %}
+{% block title %}UserLogin{% endblock %}
+{% block body-title %}Login Here{% endblock %}
+{% block form %}
+<form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div>
+              <label for="email" class="mb-1">Email</label>
+              <div class="input-group mb-1" >
+                <input type="email" class="form-control mb-3" name="email" placeholder="Enter email" required="" id="email">
+              </div>
+            </div>
+
+            <div>
+              <label for="password" class="mb-1">Password</label>
+              <div class="input-group mb-1">
+                <input type="password" minlength="8" maxlength="10" class="form-control "name="password" placeholder="Enter password" required="" id="password">
+                <button class="btn btn-light eye" onclick="javascript:eyelistener(document.getElementById('password'),document.getElementById('open-eye'))" type="button" >
+                <i class="far fa-eye-slash" id="open-eye" ></i>
+                </button>
+              </div>
+            </div>
+
+           <input type="submit" style="margin-left:30%;width:50%;" class="btn btn-primary rounded-pill my-4" value="Login">
+<h4 class="text-center">Not a user?</h4>
+              <a href="{% url 'signup' %}" style="margin-left:30%;width:50%;" class="btn btn-primary rounded-pill my-6" >
+                Signup
+              </a>
+          </form>
+{% endblock %}
+
+{% block footer %}
+
+          <div id = "footer">
+            <h3 class = "text-white text-center">Copyright &copy; 2021</h3>
+            <h4 class = "text-white text-center">Made with  <i class="fas fa-heart" style="color : red"></i> for Ignite Expo 2021</h4>
+          </div>
+{% endblock %}

@@ -1,0 +1,84 @@
+<script>document.addEventListener("DOMContentLoaded", function(){
+// make it as accordion for smaller screens
+if (window.innerWidth > 992) {
+
+	document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
+
+		everyitem.addEventListener('mouseover', function(e){
+
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.add('show');
+				nextEl.classList.add('show');
+			}
+
+		});
+		everyitem.addEventListener('mouseleave', function(e){
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.remove('show');
+				nextEl.classList.remove('show');
+			}
+
+
+		})
+	});
+
+}
+// end if innerWidth
+}); </script>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+
+        <a href="#" class="navbar-brand h1">Smart Parking app</a>
+
+            {% if user.is_authenticated %}
+
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navmenu">
+                        <ul class="navbar-nav ms-auto">
+
+                              <li class="nav-item">
+                                  <a href="{% url 'home' %}" class="nav-link">Home</a>
+                              </li>
+
+                              <li class="nav-item">
+                                  <a href="{% url 'rent' %}" class="nav-link">Rent</a>
+                              </li>
+
+                            <li class="nav-item dropdown">
+		   <a class="nav-link  dropdown-toggle" href="" data-bs-toggle="dropdown">Profile</a>
+		    <ul class="dropdown-menu bg-dark">
+			  <li><a class="nav-link" href="{% url 'profile' %}"> Personal Info</a></li>
+			  <li><a class="nav-link" href="{% url 'vehicle_and_booking_details' %}"> Vehicle Info</a></li>
+		    </ul>
+		</li>
+
+                              <li class="nav-item">
+                                  <a href="{% url 'report' %}" class="nav-link">Report</a>
+                              </li>
+
+                              <li class="nav-item">
+                                  <a href="{% url 'report_table' %}" class="nav-link">Rewards</a>
+                              </li>
+                            <li class="nav-item">
+                                  <a href="/home/rent_places" class="nav-link" >Booking_Details</a>
+                              </li>
+
+                              <li class="nav-item">
+                                  <a href="{% url 'logout' %}" class="btn btn-primary rounded-pill ">Logout</a>
+                              </li>
+
+                        </ul>
+                  </div>
+            {% endif %}
+    </div>
+</nav>

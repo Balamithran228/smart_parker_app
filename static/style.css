@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body{
+background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5)fixed no-repeat;
+font-family: 'Poppins', sans-serif;}
+h1{font-weight:bold;}
+.eye{
+display: 'inline-block';
+background: 'transparent';
+
+width: 50px;
+cursor: none;
+}
+#footer{
+  margin-top : 6rem;
+  background: #212529;
+  padding : .2rem;
+  bottom :0;
+  position : absolute;
+  width : 100%;
+}
+#footer h3{
+  color : white;
+}
+.open-eye{
+cursor: pointer;
+}
+
+a,input[type='submit']{width:100%;}
