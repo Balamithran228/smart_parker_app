@@ -1,4 +1,4 @@
-# Smart Parker Application - Readme
+# Smart Parker Application
 
 ## Introduction
 
